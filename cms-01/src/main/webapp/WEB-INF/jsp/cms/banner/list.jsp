@@ -7,7 +7,45 @@
 <title>轮播图列表</title>
 </head>
 <body>
-	 
+<form:form id="form1" action="" modelAttribute="cond" method="post">
+<!-- 查询模块: -->
+<div class="ti">轮播图查询</div>
+ 	<table class="SearchTab">
+			<tr>
+				<td align="right">名称</td>
+				<td><form:input path="name_c" /></td>
+				<td align="right">状态</td>
+				<td><form:input path="status_c" /></td>
+				<td align="right">顺序</td>
+				<td><form:input path="order_num_c" /></td>
+				<td align="right">终端类型</td>
+				<td><form:input path="type_c" /></td>
+ 
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<input type="button" class="bnt" value="查询" onclick="query_onclick()" /> 
+					<input type="button" class="bnt" value="清空"	onclick="query_clean()" />
+				</td>
+			</tr>
+		</table>
+		
+<!-- 轮播图新增列表 -->
+			 <table class="titleTab">
+				<tr>
+					<td class="ti">轮播图列表</td>
+					<td class="bu">
+						<input type="button" class="bnt" value="新增" onclick="add_onclick()" />
+					</td>
+				</tr>
+			</table>
 <!-- 后台数据显示:用于显示从controller返回的数据 -->
 	 <table class="dataTab">
 	 <!-- 标题显示 -->
@@ -39,6 +77,8 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<jsp:include page="/WEB-INF/jsp/page.jsp" />
+		</form:form>
 </body>
 <script type="text/javascript">
 	 
