@@ -91,7 +91,7 @@ function checkMobile(s) {
  * 用途：检查输入字符串是否是数字 输入： str：字符串 返回： 如果通过验证返回true,否则返回false
  */
 
-function isNumber(str) {
+function isNumber(str){
 	var reg = /^\d+$/;
 	if (reg.test(str))
 		return true;

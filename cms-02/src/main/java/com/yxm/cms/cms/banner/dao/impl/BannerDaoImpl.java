@@ -19,8 +19,8 @@ import com.yxm.cms.cms.banner.model.BannerCond;
 public class BannerDaoImpl extends BaseDao<Banner> implements IBannerDao{
 	@Override
 	public int insert(Banner vo) {
-		String sql = "insert into cms_banner(name,order_num,picture_path,picture_url,jump_url,remark,status,type,ts from cms_banner) values(?,?,?,?,?,?,?,?,?)";
-		Object[] params = new Object[]{vo.getName(),vo.getOrder_num(),vo.getPicture_path(),vo.getPicture_url(),vo.getJump_url(),vo.getRemark(),vo.getStatus(),vo.getStatus(),vo.getType(),vo.getTs()};
+		String sql = "insert into cms_banner(name,order_num,picture_path,picture_url,jump_url,remark,status,type,ts) values(?,?,?,?,?,?,?,?,?)";
+		Object[] params = new Object[]{vo.getName(),vo.getOrder_num(),vo.getPicture_path(),vo.getPicture_url(),vo.getJump_url(),vo.getRemark(),vo.getStatus(),vo.getType(),vo.getTs()};
 		return jdbcTemplate.update(sql,params);
 	}
 	@Override

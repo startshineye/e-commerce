@@ -9,7 +9,6 @@ import com.common.condition.BaseCondition;
  * @author yxm
  *
  */
-
 public class BannerCond extends BaseCondition {
 	// 添加和业务有关字段
 	private Integer id_c;// 主键,

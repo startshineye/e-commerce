@@ -5,7 +5,6 @@ import java.util.Date;
 /**
  * @类说明:轮播图实体类
  * @author yxm
- *
  */
 public class Banner {
      private Integer id ;//主键,
@@ -78,5 +77,11 @@ public class Banner {
 	}
 	public void setTs(Date ts) {
 		this.ts = ts;
-	}	 
+	}
+	@Override
+	public String toString() {
+		return "Banner [id=" + id + ", name=" + name + ", order_num=" + order_num + ", picture_path=" + picture_path
+				+ ", picture_url=" + picture_url + ", jump_url=" + jump_url + ", remark=" + remark + ", status="
+				+ status + ", type=" + type + ", ts=" + ts + "]";
+	}	
 }

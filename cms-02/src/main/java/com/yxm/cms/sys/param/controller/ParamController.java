@@ -120,7 +120,7 @@ public class ParamController {
 		map.put("paramObj", param);
 		return "/sys/param/detail";
 	}
-
+	
 	/**
 	 * 日期属性编辑器
 	 */

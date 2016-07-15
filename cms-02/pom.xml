@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yxm</groupId>
 	<version>1.0</version>
-	<artifactId>cms-01</artifactId>
+	<artifactId>cms-02</artifactId>
 	<packaging>war</packaging>
-	<name>cms-01</name>
+	<name>cms-02</name>
 	<build>
 		<plugins>
 			<!-- 打War 的一个插件 -->

@@ -31,19 +31,19 @@
 				<td class="left30_red" id="type_td"></td>
 			</tr>
 			<tr>
-			<td class="right30">ts</td>
-		       <td class="left30"><form:input path="ts" format="yyyy-MM-dd HH:mm:ss" onClick="WdatePicker
-               ({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  class="text-m" /></td>
-				<td class="left30_red" id="name_td"></td>
-			</tr>
-			<tr>
 				<td class="right30">备注</td>
 				<td class="left30"><form:textarea path="remark"  class="tarea"  /><font color="#CE0000">*</font></td>
 				<td class="left30_red" id="remark_td"></td>
 			</tr>
+<!-- 			<tr> -->
+<!-- 				<td class="right30">ts</td> -->
+<%-- 		       <td class="left30"><form:input path="ts" format="yyyy-MM-dd HH:mm:ss" onClick="WdatePicker
+               ({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  class="text-m" /></td> --%>
+<!-- 				<td class="left30_red" id="name_td"></td> -->
+<!-- 			</tr> -->
 		</table>
 		<center class="btn_div">
-			<input type="button" class="bnt" onclick="insert_onclick();" value="保存"/>
+			<input type="button" class="bnt" onclick="insert_onclick()" value="保存"/>
 			<input type="button" class="bnt" onclick="list_back()"	value="返回"/>
 		</center>	 
 </form:form>
@@ -56,8 +56,6 @@ function insert_onclick(){
 // 	notBlank("order_num","顺序")
 // 	notBlank("jump_url","跳转地址")
 	checkBlank([["name","轮播图名称"],["order_num","顺序"],["jump_url","跳转地址"]]);//非空验证
-	notNumber("order_num","顺序");
-	alert(count);
 	if(count>0){
 		return false;
 	}
