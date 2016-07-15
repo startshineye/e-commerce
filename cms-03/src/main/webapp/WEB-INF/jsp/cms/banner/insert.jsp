@@ -25,7 +25,7 @@
 				<td class="left30"><form:input path="jump_url" class="text-m" /><font color="#CE0000">*</font></td>
 				<td class="left30_red" id="jump_url_td"></td>
 			</tr>
-			<tr>
+			<%-- <tr>
 				<td class="right30">终端类型</td>
 				<td class="left30"><form:input path="type"  /><font color="#CE0000">*</font></td>
 				<td class="left30_red" id="type_td"></td>
@@ -35,7 +35,7 @@
 		       <td class="left30"><form:input path="ts" format="yyyy-MM-dd HH:mm:ss" onClick="WdatePicker
                ({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  class="text-m" /></td>
 				<td class="left30_red" id="name_td"></td>
-			</tr>
+			</tr> --%>
 			<tr>
 				<td class="right30">备注</td>
 				<td class="left30"><form:textarea path="remark"  class="tarea"  /><font color="#CE0000">*</font></td>
@@ -59,6 +59,7 @@ function insert_onclick(){
 	notNumber("order_num","顺序");
 	alert(count);
 	if(count>0){
+		count=0;
 		return false;
 	}
 	toAction('${webPaht}/banner/insert');

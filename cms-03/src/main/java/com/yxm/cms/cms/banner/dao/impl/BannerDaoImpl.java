@@ -34,9 +34,15 @@ public class BannerDaoImpl extends BaseDao<Banner> implements IBannerDao{
 
 	@Override
 	public int update(Banner vo) {
-        String sql = "update cms_banner set name = ?,order_num = ?,picture_path = ?,picture_url = ?,jump_url = ?,remark = ?,status = ?,type = ?,ts = ? where id = ?";
+		System.err.println("dao的update");
+		System.err.println(vo);
+		String sql = "update cms_banner set name=?,order_num=?,picture_path=?,picture_url=?,jump_url=?,remark=?, status=?,type=?,ts=? where id=?";
+		Object[] params = new Object[] { vo.getName(), vo.getOrder_num(), vo.getPicture_path(), vo.getPicture_url(),
+				vo.getJump_url(), vo.getRemark(), vo.getStatus(), vo.getType(), vo.getTs(), vo.getId() };
+		return jdbcTemplate.update(sql, params);
+        /*String sql = "update cms_banner set name = ?,order_num = ?,picture_path = ?,picture_url = ?,jump_url = ?,remark = ?,status = ?,type = ?,ts = ? where id = ?";
 		Object[] params = new Object[]{vo.getName(),vo.getOrder_num(),vo.getPicture_path(),vo.getPicture_url(),vo.getJump_url(),vo.getRemark(),vo.getStatus(),vo.getStatus(),vo.getType(),vo.getTs()};
-        return jdbcTemplate.update(sql, params);
+		return jdbcTemplate.update(sql, params);*/
 	}
 	
 	@Override

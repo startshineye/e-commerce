@@ -107,4 +107,12 @@ public class BannerCond extends BaseCondition {
 	  add(name_c,"and name = ?");
 	  add(id_c,"and id <> ?");
 	}
+
+	@Override
+	public String toString() {
+		return "BannerCond [id_c=" + id_c + ", name_c=" + name_c + ", order_num_c=" + order_num_c + ", picture_path_c="
+				+ picture_path_c + ", picture_url_c=" + picture_url_c + ", jump_url_c=" + jump_url_c + ", remark_c="
+				+ remark_c + ", status_c=" + status_c + ", type_c=" + type_c + ", ts_c=" + ts_c + "]";
+	}
+	
 }
