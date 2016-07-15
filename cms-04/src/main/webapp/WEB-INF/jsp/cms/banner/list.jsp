@@ -69,7 +69,8 @@
 					<td>${wz.order_num}</td>
 					<td>${wz.status}</td>
 					<td>${wz.type}</td>
-					<td><fmt:formatDate value="${wz.ts}" type="both" /></td>
+					<td>${wz.ts}</td>
+					<%-- <td><fmt:formatDate value="${wz.ts}" type="both" /></td> --%>
 					<td>${wz.remark}</td>
 					<td class="td-del" onclick="toAction('${webPath}/banner/delete?id=${wz.id}');"></td>
 					<td class="td-upd" onclick="toAction('${webPath}/banner/toupdate?id=${wz.id}')"></td>

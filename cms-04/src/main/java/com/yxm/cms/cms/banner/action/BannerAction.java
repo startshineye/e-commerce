@@ -42,16 +42,6 @@ public class BannerAction {
 	public String toinsert(@ModelAttribute("banner") Banner banner) {
 		return "cms/banner/insert";
 	}
-
-	/**
-	 * @功能描述：删除数据
-	 */
-	@RequestMapping("delete")
-	// BindingResult绑定验让结果跟<form:errors path="name" />配合一起使用
-	public String delete(int id) {
-		service.delete(id);
-		return "redirect:list";
-	}
 	/**
 	 * @功能描述：新增--保存数据
 	 */
@@ -74,7 +64,6 @@ public class BannerAction {
 		map.put("banner", service.findById(id));
 		return "cms/banner/update";
 	}
-
 	/**
 	 * @功能描述：修改--保存数据
 	 */
@@ -87,6 +76,23 @@ public class BannerAction {
 		}
 		service.update(banner);
 		return "redirect:list";
+	}
+	/**
+	 * @功能描述：删除数据
+	 */
+	@RequestMapping("delete")
+	// BindingResult绑定验让结果跟<form:errors path="name" />配合一起使用
+	public String delete(int id) {
+		service.delete(id);
+		return "redirect:list";
+	}
+	/**
+	 * @功能描述：按条件取轮播图列表详情
+	 */
+	@RequestMapping("detail")
+	public String detail(int id, Map<String, Object> map){
+		map.put("banner", service.findById(id));
+		return "cms/banner/detail";
 	}
 	/**
 	 * @功能描述:后台验证.
