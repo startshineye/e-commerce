@@ -72,14 +72,13 @@
 					<%-- <td>${wz.ts}</td> --%>
 					<td><fmt:formatDate value="${wz.ts}" type="both" /></td>
 					<td>${wz.remark}</td>
-					<td>
+					<td class="td-shou-70">
 					<c:if test="${wz.status==1}">
-					 <input type="button" value="禁用" onclick="toAction('${webPath}/banner/updatestatus?id=${wz.id}&status=1');"/>
+					 <input type="button" value="禁用" onclick="toAction('${webPath}/banner/updatestatus?id=${wz.id}&status=0');"/>
 					</c:if>
 					<c:if test="${wz.status==0}">
-					 <input type="button" value="启用" onclick="toAction('${webPath}/banner/updatestatus?id=${wz.id}&status=0');"/>
+					 <input type="button" value="启用" onclick="toAction('${webPath}/banner/updatestatus?id=${wz.id}&status=1');"/>
 					</c:if>
-					
 					</td>
 					<td class="td-del" onclick="toAction('${webPath}/banner/delete?id=${wz.id}');"></td>
 					<td class="td-upd" onclick="toAction('${webPath}/banner/toupdate?id=${wz.id}')"></td>

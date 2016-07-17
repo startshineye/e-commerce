@@ -69,16 +69,22 @@ public class BannerDaoImpl extends BaseDao<Banner> implements IBannerDao{
 		return jdbcTemplate.queryForObject(sql.toString(),cond.getArray(),Integer.class);
 	}
 	@Override
-	public int updateStatus(Banner vo) {
+	public int updateStatus(Banner vo){
+		System.out.println("执行updateStatus");
+		
+		/*String sql = "update cms_banner set status=? where id=?";
+		Object[] params = new Object[]{vo.getStatus(),vo.getId()};
+		return jdbcTemplate.update(sql,params);*/
+		
+	/*	String sql = "update cms_banner set status=? where id=?";
+		Object[] obj = new Object[] { vo.getStatus(), vo.getId() };
+		return jdbcTemplate.update(sql, obj);
+		*/
 		String sql = "update cms_banner set status=? where id=?";
-		Object[] params = new Object[]{vo.getId()};
-		return jdbcTemplate.update(sql,params);
+		Object[] params = new Object[] {vo.getStatus(),vo.getId()};
+		System.err.println(vo.getStatus()+" "+vo.getId());
+		return jdbcTemplate.update(sql, params);
 	}
 
-	/*@Override
-	public List<Banner> queryList(Banner banner) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 
 }

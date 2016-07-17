@@ -26,7 +26,6 @@ import com.yxm.cms.cms.banner.service.IBannerService;
 public class BannerAction {
 	@Autowired
 	private IBannerService service;// 注入轮播图servcie接口
-	
 	@Autowired
 	private DictiParamUtil dict;//注入字典参数工具dict
 	/**
@@ -128,7 +127,8 @@ public class BannerAction {
 	 * @功能描述：修改轮播图状态
 	 */
 	@RequestMapping("updatestatus")
-	public String updatestatus(Banner banner) {
+	public String updatestatus(Banner banner){
+		System.err.println("action 执行");
 		service.updateStatus(banner);
 		return "redirect:list";
 	}
