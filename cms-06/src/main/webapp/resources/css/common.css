@@ -1,0 +1,66 @@
+@charset"utf-8";/*这里用来存公共的多次使用的CSS*/
+body{padding:0;margin:0;background:url(../img/main/content_bg.jpg);overflow:auto;}
+.body_width_0{padding:0px;}
+/*数据表格*/
+.dataTab{width:100%;border:1px solid #d0d0d0;border-collapse:collapse;padding-bottom:2px;font-size:12px;}
+/*列表单元格*/
+.dataTab td{border:1px solid #d0d0d0;height:20px;}
+/*列表单表头*/
+.dataTab th{border:1px solid #d0d0d0;height:21px;background-color:#b0c4de;font-weight:normal;}
+.dataTab th.tabth{width:6px;}
+/*查询区表格*/
+/*数据列表格TD对齐方式与宽度*/
+.dataTab td.right30_blue{width:30%;text-align:right;color:#200080;}
+.dataTab td.right200_blue{width:200;text-align:right;color:#200080;}
+.dataTab td.right30{width:30%;text-align:right;}
+.dataTab td.left30{width:30%;}
+.dataTab td.left30_red{width:30%;font-size:12px;color:#CE0000;}
+.dataTab td.right15{width:15%;text-align:right;}
+.dataTab td.left15{width:15%;}
+.dataTab td.left15_red{width:15%;font-size:12px;color:#CE0000;}
+/*序号列*/
+.dataTab td.sqe_w{width:60px;text-align:center;} 
+.dataTab td.sqe{width:40px;text-align:center;} 
+.SearchTab{width:100%;border:0;cellpadding:0;font-size:12px;background:rgb(247, 250, 255);padding-top:5px;padding-bottom:2px;}
+div.query{background-color:rgb(247, 250, 255);display:inline;}
+/*下拉列表*/
+.sel{width:200px;height:20px;}
+.bnt{width:60px;height:26px;}
+.text-s{width:100px;height:20px;}
+.text-m{width:150px;height:20px;}
+.text-b{width:200px;height:20px;}
+
+/*输入框*/
+.input{width:150px;}
+/*只读输入框*/
+.inputro .readonly{background:#d0d0d0;}
+/*输入域*/
+.tarea{width:200px;height:60px;font-size:12px;}
+/*输入域*/
+.tarea_big{width:300px;height:90px;font-size:12px;}
+/*输入域*/
+.tarea_400_200{width:400px;height:200px;font-size:12px;}
+/*页面标题*/
+div.ti{font-size:12px;background:url(../img/main/state.jpg);padding-top: 6px;padding-bottom: 4px;padding-left: 10px;}
+/*参照页面输入框*/
+.inputref{background:url(../img/open-page.png) no-repeat right center #d0d0d0;width:200px;}
+/*标题操作区表格*/
+.titleTab{width:100%;cellpadding:0;background:url(../img/main/state.jpg);padding-right: 10px;padding-left: 10px;}
+/*标题操作区表格中的标题*/
+.titleTab td.ti{text-align:left;font-size:12px;}
+/*标题操作区表格中按钮*/
+.titleTab td.bu{text-align:right;}
+/*按钮区*/
+.btn_div{text-align:center;padding-top:3px;width:100%;background:url(../img/main/state.jpg) repeat-x;}
+/*页面标题*/
+ div.sp{border:1px solid #66B3FF ;padding:200px;} 
+td.td-del{background:url(../img/ope/delete.gif) no-repeat center; width:45px;cursor:pointer;}
+td.td-upd{background:url(../img/ope/edit.png) no-repeat center;width:45px;cursor:pointer;}
+td.td-det{background:url(../img/ope/grid.gif) no-repeat center;width:45px;cursor:pointer;}
+td.td-res{background:url(../img/ope/reset.png) no-repeat center;width:55px; cursor:pointer;}
+td.td-user{background:url(../img/ope/user.png) no-repeat center;width:55px;cursor:pointer;}
+td.td-shou{background:url(../img/ope/shou.png) no-repeat center;width:55px;cursor:pointer;}
+
+td.td-upd-100{background:url(../img/ope/edit.png) no-repeat center;width:100px;cursor:pointer;}
+td.td-shou-70{width:70px;}
+ 
