@@ -1,7 +1,10 @@
-﻿version 05
+version 05
 1.字典值的处理
- 新增,修改,列表页查询条件, 页面 下拉列表（生成map)
- DictiParamUtil从数据库表sys_dict中查询出date_value.但是我们必须从项目sys下面的dict中查
- 并保存到一个map中
+	新增,修改,列表页查询条件,  页面 下拉列表（生成map）【状态，类型显示的是数字】
+	
+	列表,详细页中显示值而非数字【启用，禁用实现，pc，M，APP实现】
+	在banner实体类中增加字段，status_name,type_name;用于表示接受的中文
+		1.直接拼sql
+		2.补值办法使用param工具类实现。
   
    

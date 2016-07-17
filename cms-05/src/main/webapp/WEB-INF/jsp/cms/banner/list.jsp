@@ -66,8 +66,8 @@
 					<td class="sqe_w" ><input type="checkbox" name="chk" value="${wz.id}" /> <u:sequence index="${vs.count}" /></td>
 					<td>${wz.name}</td>
 					<td>${wz.order_num}</td>
-					<td>${wz.status}</td>
-					<td>${wz.type}</td>
+					<td>${wz.status_name}</td>
+					<td>${wz.type_name}</td>
 					<td>${wz.ts}</td>
 					<%-- <td><fmt:formatDate value="${wz.ts}" type="both" /></td> --%>
 					<td>${wz.remark}</td>

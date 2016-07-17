@@ -27,11 +27,11 @@
 		</tr>
 		<tr>
 			<td class="right30">状态</td>
-			<td>${banner.status}</td>
+			<td>${banner.status_name}</td>
 		</tr>
 		<tr>
 			<td class="right30">所属终端</td>
-			<td>${banner.type}</td>
+			<td>${banner.type_name}</td>
 		</tr>
 		<tr>
 			<td class="right30">时间戳</td>

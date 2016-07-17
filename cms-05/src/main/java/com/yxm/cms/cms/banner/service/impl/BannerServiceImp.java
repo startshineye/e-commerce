@@ -1,11 +1,13 @@
 package com.yxm.cms.cms.banner.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.common.dao.DictiParamUtil;
 import com.yxm.cms.cms.banner.dao.IBannerDao;
 import com.yxm.cms.cms.banner.model.Banner;
 import com.yxm.cms.cms.banner.model.BannerCond;
@@ -17,6 +19,8 @@ public class BannerServiceImp implements IBannerService{
 	//属性注入
 	@Autowired
 	private IBannerDao dao;
+	@Autowired
+	private DictiParamUtil dict;// 字典参数辅助类
 	
 	@Override
 	public int insert(Banner banner) {
@@ -40,10 +44,23 @@ public class BannerServiceImp implements IBannerService{
 	@Override
 	public void queryList(Map<String, Object> map, BannerCond cond) {
 		dao.queryList(map, cond);
+		// 翻译字典值
+		@SuppressWarnings("unchecked")
+		List<Banner> list = (List<Banner>) map.get("dataList");
+		for (Banner banner : list) {
+			banner.setType_name(dict.findDictValue(10, banner.getType()));
+			// 轮播图状态字典值
+			banner.setStatus_name(dict.findDictValue(11, banner.getStatus()));
+		}
 	}
 	@Override
 	public Banner findById(int id) {
-		return dao.findById(id);
+		Banner banner = dao.findById(id);
+		// 补充终端类型字典值
+		banner.setType_name(dict.findDictValue(10, banner.getType()));
+		// 轮播图状态字典值
+		banner.setStatus_name(dict.findDictValue(11, banner.getStatus()));
+		return banner;
 	}
 	@Override
 	public int queryCount(BannerCond cond) {

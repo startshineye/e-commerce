@@ -17,7 +17,8 @@ public class Banner {
 	 private Integer status ;//状态,
 	 private Integer type;//所属终端,
 	 private Date ts ;//时间戳,
-	 
+	 private String status_name ;//状态,
+	 private String type_name;//所属终端,
 	public Integer getId() {
 		return id;
 	}
@@ -78,10 +79,16 @@ public class Banner {
 	public void setTs(Date ts) {
 		this.ts = ts;
 	}
-	@Override
-	public String toString() {
-		return "Banner [id=" + id + ", name=" + name + ", order_num=" + order_num + ", picture_path=" + picture_path
-				+ ", picture_url=" + picture_url + ", jump_url=" + jump_url + ", remark=" + remark + ", status="
-				+ status + ", type=" + type + ", ts=" + ts + "]";
-	}	
+	public String getStatus_name() {
+		return status_name;
+	}
+	public void setStatus_name(String status_name) {
+		this.status_name = status_name;
+	}
+	public String getType_name() {
+		return type_name;
+	}
+	public void setType_name(String type_name) {
+		this.type_name = type_name;
+	}
 }

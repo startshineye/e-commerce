@@ -54,7 +54,6 @@ public class BannerDaoImpl extends BaseDao<Banner> implements IBannerDao{
 		//此处map是接收执行结果后的值,相当于request
 		queryPage(map, sql.toString(), cond, Banner.class);
 	}
-
 	@Override
 	public Banner findById(int id) {
 		String sql = "select id,name,order_num,picture_path,picture_url,jump_url,remark,status,type,ts from cms_banner where id= ?";
