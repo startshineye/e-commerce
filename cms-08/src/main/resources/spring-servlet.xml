@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+					http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd
+					http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
+
+	<!--属性资源定位器：加载数据库属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!--设置spring容器的扫描范围，扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 -->
+	<context:component-scan base-package="com.common,com.yxm,com.codegen" />
+	<!--开起注解方式的springmvc -->
+	<mvc:annotation-driven />
+	<!--让spring前端控制器跳过静态的资源请求 location路径, /resources/**这个文件夹下所有资源全部跳过 -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!--配置dbcp连接池JDBC数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!--配置Jdbc模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<!--配置namedJdbc模板 -->
+	<bean id="namedJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg>
+			<ref bean="dataSource" />
+		</constructor-arg>
+	</bean>
+	<!--配置springjdbc中的事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource" />
+	<!-- 基于注释的事务，当注释中发现@Transactional时，使用id为“transactionManager”的事务管理器 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+ 
+	<!--配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+	<!--文件上传下载专用的视图解析器CommonsMultipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxInMemorySize" value="10240" /> <!-- 最大内存大小 (10240) -->
+		<property name="maxUploadSize" value="-1" /> <!-- 最大文件大小，-1为无限止(-1) -->
+	</bean>
+	<!-- 自定义的spring容器载加工具 -->
+	<bean id="SpringContextUtil" class="com.common.util.SpringContextUtil" />
+	<!--开基于注解方式的spring计划任务 -->
+	 
+</beans>
