@@ -16,7 +16,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class FileUtil {
 	private static Log logger = LogFactory.getLog(FileUtil.class);
-
 	// 递归删除文件夹
 	public static void deleteFile(File file) {
 		if (file.exists()) {// 判断文件是否存在

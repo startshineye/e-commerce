@@ -26,23 +26,25 @@ public class BannerServiceImp implements IBannerService {
 	private DictiParamUtil dict;// 字典参数辅助类
 	@Override
 	public int insert(Banner banner, MultipartFile img) {
-		// 文件上传
-		// 1.获取文件扩展名
-		String exName = img.getOriginalFilename().substring(img.getOriginalFilename().lastIndexOf("."));
-		// 2.给文件取不重复的名称，
-		long longTime = new Date().getTime();//取时间长整数值
-		String fullName = longTime + exName;//贫家全文件名
-		String banner_path = "banner/";// 定义轮播图文件保存路径
-		String fileRoot = dict.findValue("fileRoot");//保存文件的根路径
-		String fullPath = fileRoot + banner_path + fullName;//文件完整路径
-		banner.setPicture_path(fullPath);// 设置文件保存路径
-		String fileUrl = dict.findValue("imgUrl");// 文件展示前缀
-		banner.setPicture_url(fileUrl + banner_path + fullName);// 设置文件展示路径
-		try {
-			FileUtil.createDir(fullPath);
-			img.transferTo(new File(fullPath)); 
-		} catch (Exception e) {
-			e.printStackTrace();
+		if(!img.isEmpty()){
+			// 文件上传
+			// 1.获取文件扩展名
+			String exName = img.getOriginalFilename().substring(img.getOriginalFilename().lastIndexOf("."));
+			// 2.给文件取不重复的名称，
+			long longTime = new Date().getTime();//取时间长整数值
+			String fullName = longTime + exName;//贫家全文件名
+			String banner_path = "banner/";// 定义轮播图文件保存路径
+			String fileRoot = dict.findValue("fileRoot");//保存文件的根路径
+			String fullPath = fileRoot + banner_path + fullName;//文件完整路径
+			banner.setPicture_path(fullPath);// 设置文件保存路径
+			String fileUrl = dict.findValue("imgUrl");// 文件展示前缀
+			banner.setPicture_url(fileUrl + banner_path + fullName);// 设置文件展示路径
+			try {
+				FileUtil.createDir(fullPath);
+				img.transferTo(new File(fullPath)); 
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		banner.setStatus(1);// 让轮播图默认可用
 		banner.setTs(new Date());
