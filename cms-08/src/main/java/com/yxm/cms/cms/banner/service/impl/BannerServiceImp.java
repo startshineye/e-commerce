@@ -32,20 +32,16 @@ public class BannerServiceImp implements IBannerService {
 		// 2.给文件取不重复的名称，
 		long longTime = new Date().getTime();//取时间长整数值
 		String fullName = longTime + exName;//贫家全文件名
-		System.err.println(exName);
-		System.err.println(fullName);
 		String banner_path = "banner/";// 定义轮播图文件保存路径
 		String fileRoot = dict.findValue("fileRoot");//保存文件的根路径
 		String fullPath = fileRoot + banner_path + fullName;//文件完整路径
 		banner.setPicture_path(fullPath);// 设置文件保存路径
-		String fileUrl = dict.findValue("fileUrl");// 文件展示前缀
+		String fileUrl = dict.findValue("imgUrl");// 文件展示前缀
 		banner.setPicture_url(fileUrl + banner_path + fullName);// 设置文件展示路径
 		try {
 			FileUtil.createDir(fullPath);
-			img.transferTo(new File(fullPath));
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			img.transferTo(new File(fullPath)); 
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		banner.setStatus(1);// 让轮播图默认可用

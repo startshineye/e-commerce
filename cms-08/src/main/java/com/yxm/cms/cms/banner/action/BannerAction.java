@@ -32,7 +32,6 @@ public class BannerAction {
 	/**
 	 * @功能描述：按条件取轮播图列表
 	 */
-	
 	@RequestMapping("list")
 	public String queryList(@ModelAttribute("cond") BannerCond cond, Map<String, Object> map) {
 		service.queryList(map,cond);

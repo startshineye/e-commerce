@@ -57,7 +57,6 @@ public class DictiParamUtil {
 		}
 		return dict;
 	}
-
 	/**
 	 * @功能描述: 按类型与关键字查找对象
 	 */

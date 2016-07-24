@@ -38,8 +38,8 @@
 			<td><fmt:formatDate value="${banner.ts}" type="both" /></td>
 		</tr>
 		<tr>
-			<td class="right30">跳转地址</td>
-			<td>${banner.jump_url}</td>
+			<td class="right30">图片</td>
+			<td><img alt="" src="${banner.picture_url}" style="width: 200px;height: 100px"></td>
 		</tr>
 		<tr>
 			<td class="right30">备注</td>
