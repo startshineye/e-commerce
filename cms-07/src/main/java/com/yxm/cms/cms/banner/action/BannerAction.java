@@ -53,9 +53,10 @@ public class BannerAction {
 	 */
 	@RequestMapping("insert")
 	// BindingResult绑定验让结果跟<form:errors path="name" />配合一起使用
-	public String insert(Banner banner, BindingResult result) {
+	public String insert(Banner banner, BindingResult result,Map<String,Object> map) {
 		validate(banner,result,1);//1表示用insert方法
 		if(result.hasErrors()){
+			map.put("typeMap",dict.getDictMap(10,false));//通过工具类获取终端类型map
 			// 跳回到新增页面去
 			return "cms/banner/insert";
 		}
@@ -77,9 +78,10 @@ public class BannerAction {
 	 */
 	@RequestMapping("update")
 	// BindingResult绑定验让结果跟<form:errors path="name" />配合一起使用
-	public String update(Banner banner, BindingResult result) {
+	public String update(Banner banner, BindingResult result,Map<String,Object> map) {
 		validate(banner,result,2);//2表示用update方法
 		if(result.hasErrors()){
+			map.put("typeMap",dict.getDictMap(10,false));//通过工具类获取终端类型map
 			return "cms/banner/update";
 		}
 		service.update(banner);
