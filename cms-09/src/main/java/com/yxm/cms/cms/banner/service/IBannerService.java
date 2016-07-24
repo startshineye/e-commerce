@@ -30,7 +30,7 @@ public interface IBannerService {
 	    * @param banner
 	    * @return
 	    */
-		int update(Banner banner);
+		int update(Banner banner,MultipartFile img);
 	   /**
 	    * @功能:分页查询轮播图
 	    * @param banner

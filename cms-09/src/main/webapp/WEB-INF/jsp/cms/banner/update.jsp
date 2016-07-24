@@ -7,9 +7,11 @@
 <title>轮播修改</title>
 </head>
 <body>
-<form:form id="form1" action="" modelAttribute="banner" method="post">
+<form:form id="form1" action="" modelAttribute="banner" method="post" enctype="multipart/form-data">
 <form:input path="id"/>
 <form:input path="status"/>
+<form:input path="picture_url"/>
+<form:input path="picture_path"/>
 		<div class="ti">轮播图新增</div>
 		<table class="dataTab">
 			<tr>
@@ -38,6 +40,11 @@
                ({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  class="text-m" /></td>
 				<td class="left30_red" id="name_td"></td>
 			</tr> --%>
+			<tr>
+				<td class="right30">上传图片</td>
+				<td class="left30"><input type="file" name = "img"></td>
+				<td class="left30_red" id="type_td"></td>
+			</tr>
 			<tr>
 				<td class="right30">备注</td>
 				<td class="left30"><form:textarea path="remark"  class="tarea"  /><font color="#CE0000">*</font></td>
