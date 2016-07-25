@@ -1,0 +1,30 @@
+/*reset*/
+body{font-family: "microsoft yahei","微软雅黑";}
+body,ul,li,ol,img{margin: 0;padding: 0;}
+li{list-style: none;}
+
+body{width: 1250px;height: auto;margin: 0 auto;}
+body>h5{margin-left: 20px;}
+body>div{margin-left: 20px;}
+
+.com_banner{}
+.com_banner ol{position:relative;width: 120px;height: 20px;top:-30px;left:60px;}
+.com_banner ol li{float:left;width: 10px;height: 10px;margin: 5px;background: #FFB5C5;}
+.com_banner ol li.seleted{background: #1AA4CA;}
+
+
+.com_point{}
+.com_point ul li{display: inline-block; text-align: center; width: 300px; height: 69px; line-height: 69px; vertical-align: middle;}
+.com_point ul li i{vertical-align: middle; height: 69px;}
+.com_point ul li i img{height: 30px; vertical-align: middle;}
+.com_point ul li i span{vertical-align: middle;}
+
+.com_ad{width:1200px;}
+.com_ad a img{width:1200px;padding-bottom: 5px;}
+.com_head{background:#333333;color:#cccccc;height: 42px;width:1200px;vertical-align: middle;display: block;	font-size: 14px;}
+.com_head table tr td.td150 {height:40px;vertical-align: middle;width: 120px;text-align: center;cursor: pointer;}
+.com_logo{background-image: url('../img/logo.png'); width: 220px;}
+
+.com_footer{height:auto;width:100%;font-size: 12px;text-align: center;}
+.com_footer table {width:600px;}
+.com_footer table tr td.td150 {height:40px;vertical-align: middle;width: 150px;text-align: center;cursor: pointer;}

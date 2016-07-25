@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+					http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.1.xsd
+					http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 属性文件加载(定位)器 :配置连接信息 -->
+	<context:property-placeholder location="classpath:config.properties" />
+	<!-- 设置spring扫描范围 -->
+	<context:component-scan base-package="com.yxm,com.common" />
+	<!-- 使用注解方式的MVC -->
+	<mvc:annotation-driven />
+	<!-- 让spring前端控制器，对指定的静态资放行 -->
+	<!-- 让location下边的所有资源不走前端控制器 -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- 配置内部资源视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 自定义的配置信息 -->
+	<bean class="com.common.config.Config">
+		<!-- api数据接口访问的前缀 -->
+		<property name="api_url" value="${api.url}" />
+	</bean>
+</beans>
