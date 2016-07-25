@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.cms.banner.dao.IBannerDao">
+  <select id="queryList" resultType="com.yxm.cms.banner.model.Banner">
+    select id,name,order_num,picture_path,picture_url,jump_url,remark,status,type,ts from cms_banner 
+    where type = #{type} and status = 1
+  </select>
+</mapper>
